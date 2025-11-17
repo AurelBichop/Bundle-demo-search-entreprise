@@ -38,7 +38,6 @@ class SearchEntrepriseCommand extends Command
         $query = $input->getArgument('query');
         $isSiren = $input->getOption('siren');
         $perPage = (int) $input->getOption('per-page');
-
         try {
             if ($isSiren) {
                 $entreprise = $this->entrepriseSearch->findBySiren($query);
@@ -48,7 +47,6 @@ class SearchEntrepriseCommand extends Command
 
                     return Command::SUCCESS;
                 }
-
                 $io->success('Entreprise trouvée !');
                 $io->definitionList(
                     ['SIREN' => $entreprise->siren],

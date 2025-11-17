@@ -31,6 +31,7 @@ class EntrepriseSearchCLient implements EntrepriseSearchClientInterface
         int $perPage = 10,
         array $filters = [],
     ): SearchResult {
+        $this->logger?->debug('Début de la recherche', ['query' => $query]);
         try {
             $params = array_merge([
                 'q' => $query,
